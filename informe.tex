@@ -40,7 +40,7 @@
 
 		\vspace{1.5cm}
 
-		\includegraphics[width=0.4\textwidth]{img/logoUNLaM.jpeg}
+		\includegraphics[width=0.4\textwidth]{img/logoUNLaM.png}
 
 		\vfill
 		Universidad Nacional de la Matanza\\
@@ -51,9 +51,67 @@
 \makeatother
 \newpage
 
-\section{Resumen}
+\section*{Resumen}
 
 Este informe es una memoria breve del trabajo realizado durante el año 2022.
+En el marco de la investigación se evaluaron distintos programas para el análisis de compatibilidad electromagnética.
+
+\section{Compatibilidad electromagnética}
+
+Esta sección es una introducción a la temática que abordan los programas evaluados; su naturaliza e importancia.
+
+% temática
+
+El diseño de circuitos electrónicos que manejan señales de alta frecuencia se someten a efectos no deseados.
+Esto se debe a que las trazas del impreso son fuentes de radiación electromagnética.
+Luego, se inducen corrientes en las pistas cercanas que pueden alterar o destruir parte del sistema.
+Además, las ecuaciones que rigen el comportamiento de la radiación en el circuito impreso son de gran complejidad.
+
+Es posible construir guías de onda en un circuito impreso, como así también filtros y blindajes.
+También es posible dibujar adaptadores de impedancia para conectar una antena.
+En la figura \ref{fig:pcb} se puede observar un ejemplo de un circuito que implementa estos componentes como parte de sus trazas.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/pcb.jpg}
+	\caption{Guías de ondas, filtros, adaptadores y blindajes impresos.}
+	\label{fig:pcb}
+\end{figure}
+
+Los componentes modernos tienen un alto grado de integración y a menudo manejan señales de alta frecuencia.
+Los encapsulados tienen un gran número de terminales que en algunos casos obligan a crear un circuito impreso donde las pistas de alta frecuencia se encuentran en proximidad.
+En la figura \ref{fig:fpga} se puede ver una \emph{field-programable gate array} (FPGA) y se puede apreciar la cercanía de sus terminales.
+Además, este tipo de componente se suele utilizar en una cadena de procesamiento de datos de alta frecuencia.
+Finalmente, se pone de manifiesto la necesidad de utilizar una herramienta informática para asistir en el cálculo y simulación de la física involucrada.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/fpga.jpg}
+	\caption{Componente de alto grado de integración.}
+	\label{fig:fpga}
+\end{figure}
+
+Los programas evaluados utilizan el método de elementos finitos (FEM). El cuál permite resolver numéricamente ecuaciones diferenciales que de la geometría del circuito y de las señales que lo estimulan.
+Esta estrategia se utiliza en distintos tipos de simulación como: análisis estructural, transferencia de calor, flujo de fluidos, transporte de masa y potencial electromagnético.
+
+El FEM es un método numérico general para resolver ecuaciones diferenciales parciales en dos o tres variables espaciales (es decir, algunos problemas de valores en la frontera).
+Para resolver un problema, el FEM subdivide un sistema grande en partes más pequeñas y simples que se denominan elementos finitos.
+Esto se logra mediante una discretización espacial particular en las dimensiones del espacio, que se implementa mediante la construcción de una malla del objeto: el dominio numérico para la solución, que tiene un número finito de puntos.
+La formulación del método de elementos finitos de un problema de valores en la frontera finalmente da como resultado un sistema de ecuaciones algebraicas.
+El método aproxima la función desconocida sobre el dominio.
+Las ecuaciones simples que modelan estos elementos finitos se ensamblan luego en un sistema de ecuaciones más grande que modela todo el problema.
+Luego, el FEM aproxima una solución minimizando una función de error asociada a través del cálculo de variaciones.
+
+En la figura \ref{fig:simulacion_ejemplo} se puede observar el resultado de una simulación por el método FEM.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/simulacion_1_01.jpg}
+	\caption{Simulación de un circuito impreso.}
+	\label{fig:simulacion_ejemplo}
+\end{figure}
+
+\newpage
 
 \section{OpenEMS}
 
@@ -96,6 +154,17 @@ Además se estudió como utilizarlo con Octave y se obtuvieron los siguientes re
 
 Dado el estado actual de este programa se hace imposible utilizarlo como herramienta de las cátedras si antes no se repara y actualiza el analizador léxico.
 
+En la figura \ref{fig:openems} se puede observar una simulación realizada en OpenEMS.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/openems.jpeg}
+	\caption{Simulación una antena en OpenEMS.}
+	\label{fig:openems}
+\end{figure}
+
+\newpage
+
 \section{Ansys}
 
 Ansys HFSS (simulador de estructura de alta frecuencia) es un solucionador comercial de métodos de elementos finitos para estructuras electromagnéticas (EM) de Ansys que ofrece varias tecnologías de resolución de última generación.
@@ -111,6 +180,15 @@ Además, está preparada para ser utilizadas en el diseño de antenas y elemento
 Durante el transcurso del 2022 se logró un contacto comercial que realizó una propuesta de trabajo a la UNLaM a cambio de licencias y capacitación.
 Se dió una capacitación sobre la funcionalidad y sinergia entre los distintos motores de físicas.
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/ansys.jpg}
+	\caption{Simulación de PCB flexible en Ansys.}
+	\label{fig:ansys}
+\end{figure}
+
+\newpage
+
 \section{Elmer}
 
 Elmer es un software de simulación multi-física de código abierto desarrollado principalmente por \emph{IT Center for Science} (CSC).
@@ -122,12 +200,21 @@ Elmer admite computación paralela.
 
 Actualmente los campos de uso más destacados son la glaciología computacional y el electromagnetismo computacional.
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/elmer.jpg}
+	\caption{Simulación en Elmer.}
+	\label{fig:elmer}
+\end{figure}
+
+\newpage
+
 \section{Conclusiones}
 
 \begin{itemize}
-	\item OpenEMS: no se recomienda para su uso ni continuar su investigación.
-	\item Ansys: se recomienda continuar con su investigación.
-	\item Elmer: se debe comenzar su investigación.
+	\item OpenEMS: el programa no logró cumplir las expectativas y no se ajusta a las necesidades académicas. No se recomienda para su uso ni continuar su investigación.
+	\item Ansys: a pesar que el programa es propietario y demandaría un costo económico para la universidad, se ajusta a las necesidades académicas. Se recomienda continuar con su investigación.
+	\item Elmer: se debe comenzar su investigación. Esto significa comenzar con sus pruebas de simulación y flujo de trabajo.
 \end{itemize}
 
 \end{document}
