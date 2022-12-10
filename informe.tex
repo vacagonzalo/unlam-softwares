@@ -176,29 +176,29 @@ Esto tiene la finalidad de demostrar la dificultad que enfrentaría el cuerpo de
 A continuación se detallan los pasos a seguir:
 
 \begin{enumerate}
-  \item Satisfacer las dependencias del programa, a continuación se muestran los
-    comandos para el sistema Ubuntu 22.04 LTS:
-    \begin{itemize}
-      \item Dependencias mínimas obligatorias:\\
-        \texttt{sudo apt-get install\\
-        build-essential cmake git libhdf5-dev libvtk7-dev\\
-        libboost-all-dev libcgal-dev libtinyxml-dev\\
-        qtbase5-dev libvtk7-qt-dev}
-      \item GNU Octave (equivalente GNU de Matlab, opcional):\\
-        \texttt{sudo apt-get install octave liboctave-dev}
-      \item Interfaz Python (opcional):\\
-        \texttt{sudo pip3 install matplotlib cython h5py}
-    \end{itemize}
-  \item Clonar e instalar
-    \begin{itemize}
-      \item Clonar el repositorio y sus submódulos:\\
-        \texttt{git clone --recursive\\
-          https://github.com/thliebig/openEMS-Project.git}
-      \item Dentro del repositorio ejecutar:
-        \begin{verbatim}
+	\item Satisfacer las dependencias del programa, a continuación se muestran los
+	      comandos para el sistema Ubuntu 22.04 LTS:
+	      \begin{itemize}
+		      \item Dependencias mínimas obligatorias:\\
+		            \texttt{sudo apt-get install\\
+			            build-essential cmake git libhdf5-dev libvtk7-dev\\
+			            libboost-all-dev libcgal-dev libtinyxml-dev\\
+			            qtbase5-dev libvtk7-qt-dev}
+		      \item GNU Octave (equivalente GNU de Matlab, opcional):\\
+		            \texttt{sudo apt-get install octave liboctave-dev}
+		      \item Interfaz Python (opcional):\\
+		            \texttt{sudo pip3 install matplotlib cython h5py}
+	      \end{itemize}
+	\item Clonar e instalar
+	      \begin{itemize}
+		      \item Clonar el repositorio y sus submódulos:\\
+		            \texttt{git clone --recursive\\
+			            https://github.com/thliebig/openEMS-Project.git}
+		      \item Dentro del repositorio ejecutar:
+		            \begin{verbatim}
 ./update_openEMS.sh ~/opt/openEMS --python
         \end{verbatim}
-    \end{itemize}
+	      \end{itemize}
 \end{enumerate}
 
 \subsection{Verificación}
@@ -549,8 +549,8 @@ recetas de Autotools y las bibliotecas que utiliza para \emph{linkear}.
 Existen tres posibilidades en este punto:
 
 \begin{itemize}
-	\item Crear un dockerfile que genere una imagen con Octave y OpenEMS en base a una versión de Ubuntu 
-	que soporte la última versión de hyp2mat que se publicó.
+	\item Crear un dockerfile que genere una imagen con Octave y OpenEMS en base a una versión de Ubuntu
+	      que soporte la última versión de hyp2mat que se publicó.
 	\item Utilizar un método alternativo para importar los circuitos impresos.
 	\item Abandonar OpenEMS como herramienta viable.
 \end{itemize}
@@ -643,6 +643,18 @@ docker run -ti \
 	\label{fig:dockerrun}
 \end{figure}
 
+\subsection{Conclusiones}
+
+El módulo de hyp2mat que transforma el formato HyperLynx (KiCad) a Matlab se encuentra abandonado.
+Su autor Koen De Vleeschauwer archivó el repositorio con su última contribución el día 22 de julio de 2020.
+Además, Vleeschauwer es quién mantiene la funcionalidad de exportar HyperLynx en KiCad y en la versión 6 rompió la retrocompatibilidad con OpenEMS.
+Por esto, ya no es posible importar circuitos impresos de KiCad en el software.
+
+El programa se encuentra sobre el final de su ciclo de vida.
+En la actualidad solo quedan 17 contribuyentes en el proyecto OpenEMS y la última revisión mínima que se realizó fue el 31 de mayo de 2022 por Thorsten Liebig (creador original de OpenEMS).
+Esto significa que el programa solo se mantiene vivo gracias al trabajo de una sola persona que está involucrada desde el 17 de noviembre de 2018.
+Finalmente, si se adoptara este software se dependería de la buena voluntad del Dr. Liebig.
+
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -692,13 +704,5 @@ Actualmente los campos de uso más destacados son la glaciología computacional 
 \end{figure}
 
 \newpage
-
-\section{Conclusiones}
-
-\begin{itemize}
-	\item OpenEMS: el programa no logró cumplir las expectativas y no se ajusta a las necesidades académicas. No se recomienda para su uso ni continuar su investigación.
-	\item Ansys: a pesar que el programa es propietario y demandaría un costo económico para la universidad, se ajusta a las necesidades académicas. Se recomienda continuar con su investigación.
-	\item Elmer: se debe comenzar su investigación. Esto significa comenzar con sus pruebas de simulación y flujo de trabajo.
-\end{itemize}
 
 \end{document}
