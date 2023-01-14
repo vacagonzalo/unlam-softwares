@@ -731,6 +731,31 @@ Este formato elimina toda información acerca de la naturaleza del circuito y so
 
 \section{Autodesk Inventor}
 
+Autodesk Inventor es un paquete de modelado paramétrico de sólidos en 3D producido por la empresa de software autoDesk.
+
+Los usuarios comienzan diseñando piezas que se pueden combinar en ensamblajes.
+Corrigiendo piezas y ensamblajes pueden obtenerse diversas variantes.
+Inventor se utiliza en diseño de ingeniería para producir y perfeccionar productos nuevos, mientras que en programas como Autocad se conducen solo las dimensiones.
+Un modelador paramétrico permite modelar la geometría, dimensión y material de manera que si se alteran las dimensiones, la geometría actualiza automáticamente basándose en las nuevas dimensiones.
+
+Inventor utiliza formatos específicos de archivo para las piezas (.IPT), ensamblajes (.IAM) , vista del dibujo (.IDW y .DWG)y presentaciones (IPN), pero el formato del archivo de AutoCAD .DWG puede ser importado/exportado como boceto.
+
+Las últimas versiones de Inventor incluyen funcionalidades que poseían muchos modeladores 3D de mediano y alto nivel.
+Utiliza el Gestor de Formas (Shape Manager) como su kernel de modelaje geométrico, el cual pertenece a Autodesk y fue derivado del kernel de modelaje ACIS.
+Además incluye, en la versión professional, las herramientas necesarias para crear piezas de plástico y sus respectivos moldes de inyección.
+Cuenta también con análisis de tensiones por elementos finitos y análisis dinámicos.
+
+Existe la posibilidad de usar una aplicación para Inventor desarrollada por EMWORKS llamada \emph{EMS} que permite realizar simulaciones electromagnéticas dentro de Inventor.
+
+En la figura \ref{fig:inventor} se puede observar una simulación realizada con Inventor EMS.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{img/inventor.png}
+	\caption{Simulación en Inventor.}
+	\label{fig:inventor}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Comparativa final}
@@ -743,7 +768,7 @@ En el cuadro \ref{tab:conclusiones} se puede observar un resumen de la comparati
 		           & Licencia & Confiabilidad & Hardware & Aprendizaje & Usabilidad \\ \hline
 		Ansys      & +        & +++           & +        & +++         & +++        \\
 		Elmer      & +++      & ++            & ++       & +           & +          \\
-		Inventor   & +        & +++           & +        & ++          & ++         \\
+		Inventor   & +        & +             & +        & ++          & ++         \\
 		OpenEMS    & +++      & +             & +++      & +           & +          \\
 		Solidworks & +        & +++           & +        & ++          & +          \\
 	\end{tabular}
